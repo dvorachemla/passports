@@ -21,23 +21,11 @@ function ImageToTextConverter() {
         Tesseract.recognize(url, 'eng')
             .then(({ data: { text } }) => {
                 setText(text);
-                // Extract the last 5 lines of text
+                // Extract the last 2 lines of text
                 const textLines = text.split('\n');
-                const lastFiveLines = textLines.slice(-3);
-                console.log('Last 5 lines of text:');
-
-                console.log(lastFiveLines.join('\n'));
-                console.log("surname and name", lastFiveLines[0])
-                    // const names = lastFiveLines[0];
-                    // console.log("names", names)
-                    // const part = names.slice(5, 44)
-
-                // const arr = part.split(/[<]/)
-
-                // console.log(part)
-                // console.log("last name", arr[0])
-                // console.log("first name", arr[1])
-
+                const lastTwoLines = textLines.slice(-3);
+                console.log('Last 2 lines of text:');
+                console.log(lastTwoLines.join('\n'));
             })
             .catch((error) => {
                 console.error('Error performing OCR:', error);
